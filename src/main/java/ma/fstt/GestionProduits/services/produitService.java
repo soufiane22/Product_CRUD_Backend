@@ -1,6 +1,7 @@
 package ma.fstt.GestionProduits.services;
 
 import ma.fstt.GestionProduits.model.Produit;
+import org.apache.catalina.LifecycleState;
 
 import java.util.Collection;
 
@@ -18,4 +19,6 @@ public interface produitService {
     Produit update(Produit client);
 
     Boolean delete(String id);
+
+    Collection<Produit> getProduitsByCategory(String idCat);
 }

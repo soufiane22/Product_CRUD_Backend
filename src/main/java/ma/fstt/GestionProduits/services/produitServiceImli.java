@@ -59,4 +59,10 @@ public class produitServiceImli implements produitService  {
         produitRep.deleteById(id);
         return true;
     }
+
+    @Override
+    public Collection<Produit> getProduitsByCategory(String idCat) {
+        Collection<Produit> list_producys = produitRep.findProduitByIdCat(idCat);
+        return list_producys;
+    }
 }

@@ -18,7 +18,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
+//@Entity
 public class Produit {
     @Id
    @GeneratedValue(strategy = AUTO)
@@ -29,7 +29,7 @@ public class Produit {
     private double pu;
 
     @Field
-    private String id_cat;
+    private String idCat;
 
 
 

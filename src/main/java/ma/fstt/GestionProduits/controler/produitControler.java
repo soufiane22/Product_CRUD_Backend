@@ -61,6 +61,12 @@ public class produitControler {
     }
 
     @CrossOrigin(origins = "*")
+    @GetMapping("/getlist/{id_cat}")
+    public ResponseEntity<Collection> getProducts(@PathVariable("id_cat") String id_cat) {
+        return  ResponseEntity.ok( produitService.getProduitsByCategory(id_cat));
+    }
+
+    @CrossOrigin(origins = "*")
     @PostMapping("/save")
     public ResponseEntity<Response> SaveProduit(@RequestBody Produit produit) {
 
