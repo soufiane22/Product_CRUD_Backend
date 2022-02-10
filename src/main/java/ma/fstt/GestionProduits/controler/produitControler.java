@@ -95,4 +95,19 @@ public class produitControler {
                         .build()
         );
     }
+
+    @CrossOrigin(origins = "*")
+    @PutMapping("/update/{id}")
+   // @RequestMapping(method = RequestMethod.PATCH)
+    public ResponseEntity<Response> UpdateProduit(@PathVariable("id") String id , @RequestBody Produit produit) {
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("product updated",produitService.update(id , produit)))
+                        .message("product is updated")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+        );
+    }
 }

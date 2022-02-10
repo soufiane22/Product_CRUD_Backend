@@ -2,13 +2,16 @@ package ma.fstt.GestionProduits.services;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import ma.fstt.GestionProduits.model.Produit;
 import ma.fstt.GestionProduits.repositoties.produitRep;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import static org.springframework.data.domain.PageRequest.of;
 
@@ -49,8 +52,12 @@ public class produitServiceImli implements produitService  {
     }
 
     @Override
-    public Produit update(Produit client) {
-        return null;
+    public Produit update(String id ,Produit p) {
+     Produit produit = produitRep.findById(id).orElseThrow();
+     produit.setLabel(p.getLabel());
+     produit.setPu(p.getPu());
+
+        return produitRep.save(produit);
     }
 
     @Override

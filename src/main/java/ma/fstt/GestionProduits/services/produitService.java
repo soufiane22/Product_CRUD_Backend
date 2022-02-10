@@ -2,6 +2,7 @@ package ma.fstt.GestionProduits.services;
 
 import ma.fstt.GestionProduits.model.Produit;
 import org.apache.catalina.LifecycleState;
+import org.apache.catalina.authenticator.SavedRequest;
 
 import java.util.Collection;
 
@@ -16,7 +17,7 @@ public interface produitService {
 
     Produit get(String id);
 
-    Produit update(Produit client);
+    Produit update(String id, Produit produit );
 
     Boolean delete(String id);
 
